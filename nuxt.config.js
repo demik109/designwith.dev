@@ -1,11 +1,10 @@
 export default {
 
   target: 'static',
-
   srcDir: 'src',
-
   buildDir: 'build',
-
+  components: true,
+  
   head: {
     title: 'designwith.dev',
     meta: [
@@ -22,14 +21,26 @@ export default {
   ],
 
   tailwindcss: {
-    config: {}
+    config: {
+      theme: {},
+      variants: {},
+      plugins: [],
+      purge: {
+        enabled: process.env.NODE_ENV === 'production',
+        content: [
+          '~/components/**/*.vue',
+          '~/layouts/**/*.vue',
+          '~/pages/**/*.vue',
+          '~/plugins/**/*.js',
+          'nuxt.config.js'
+        ]
+      }
+    }
   },
 
   plugins: [
     '~/plugins/bus'
   ],
-
-  components: true,
 
   buildModules: [
     '@nuxtjs/tailwindcss',
