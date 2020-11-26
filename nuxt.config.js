@@ -2,6 +2,10 @@ export default {
 
   target: 'static',
 
+  srcDir: 'src',
+
+  buildDir: 'build',
+
   head: {
     title: 'designwith.dev',
     meta: [
@@ -22,6 +26,7 @@ export default {
   },
 
   plugins: [
+    '~/plugins/bus'
   ],
 
   components: true,
